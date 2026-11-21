@@ -1,0 +1,41 @@
+[
+  {
+    "id": "spicytravel-se",
+    "name": "Spicy Travel Sverige",
+    "domain": "spicytravel.se",
+    "defaultLang": "sv",
+    "brandColor": "#0F766E",
+    "allowedOrigins": [
+      "https://spicytravel.se",
+      "https://www.spicytravel.se",
+      "http://localhost:3000",
+      "http://127.0.0.1:3000"
+    ]
+  },
+  {
+    "id": "spicytravel-fi",
+    "name": "Spicy Travel Suomi",
+    "domain": "spicytravel.fi",
+    "defaultLang": "fi",
+    "brandColor": "#0F766E",
+    "allowedOrigins": [
+      "https://spicytravel.fi",
+      "https://www.spicytravel.fi",
+      "http://localhost:3000",
+      "http://127.0.0.1:3000"
+    ]
+  },
+  {
+    "id": "spicytravel-dk",
+    "name": "Spicy Travel Danmark",
+    "domain": "spicytravel.dk",
+    "defaultLang": "da",
+    "brandColor": "#0F766E",
+    "allowedOrigins": [
+      "https://spicytravel.dk",
+      "https://www.spicytravel.dk",
+      "http://localhost:3000",
+      "http://127.0.0.1:3000"
+    ]
+  }
+]

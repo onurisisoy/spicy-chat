@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Spicy Destek · Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <!-- Giriş -->
+  <main id="login" class="login" hidden>
+    <form id="loginForm" class="login-card">
+      <h1>Spicy Destek</h1>
+      <p class="muted">Çok dilli canlı destek paneli</p>
+      <label>Ekip üyesi
+        <select id="agentSelect" required></select>
+      </label>
+      <label>Şifre
+        <input id="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button type="submit" class="btn primary">Giriş yap</button>
+      <p id="loginError" class="error" role="alert"></p>
+    </form>
+  </main>
+
+  <!-- Uygulama -->
+  <div id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="logo">S</span> Spicy Destek</div>
+      <div class="status-group" role="group" aria-label="Destek durumu">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText" class="status-text"></span>
+        <select id="statusMode" aria-label="Durum modu">
+          <option value="auto">Otomatik (çalışma saatleri)</option>
+          <option value="online">Online</option>
+          <option value="offline">Offline</option>
+        </select>
+      </div>
+      <div class="topbar-right">
+        <span id="conn" class="conn" title="Canlı bağlantı"></span>
+        <span id="me" class="me"></span>
+        <button id="logout" class="btn ghost small" type="button">Çıkış</button>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <div class="filters">
+        <div class="seg" role="tablist" aria-label="Durum filtresi">
+          <button data-status="open" class="active" role="tab">Açık</button>
+          <button data-status="closed" role="tab">Kapalı</button>
+          <button data-status="all" role="tab">Tümü</button>
+        </div>
+        <select id="siteFilter" aria-label="Site filtresi"><option value="">Tüm siteler</option></select>
+      </div>
+      <ul id="convList" class="conv-list" aria-label="Konuşmalar"></ul>
+      <p id="emptyList" class="empty" hidden>Konuşma yok.</p>
+    </aside>
+
+    <section class="chat" aria-live="polite">
+      <div id="placeholder" class="placeholder">
+        <p>Soldan bir konuşma seç.</p>
+        <p class="muted">Test için: <a href="/test/" target="_blank" rel="noopener">test siteleri</a></p>
+      </div>
+      <div id="chatView" class="chat-view" hidden>
+        <div class="chat-head">
+          <div>
+            <div class="chat-title"><span id="cLang" class="lang"></span> <span id="cSite"></span> <span id="cVisitor" class="muted"></span></div>
+            <div class="chat-meta"><a id="cPage" target="_blank" rel="noopener"></a> <span id="cEmail" class="muted"></span></div>
+          </div>
+          <div class="chat-actions">
+            <button id="askEmail" class="btn ghost small" type="button">E-posta iste</button>
+            <button id="closeConv" class="btn ghost small" type="button">Kapat</button>
+            <button id="deleteVisitor" class="btn danger-ghost small" type="button" title="GDPR: ziyaretçinin tüm verisini sil">Veriyi sil</button>
+          </div>
+        </div>
+        <div id="messages" class="messages" role="log"></div>
+        <form id="composer" class="composer">
+          <textarea id="reply" rows="2" placeholder="Türkçe ya da İngilizce yaz… (Enter gönderir, Shift+Enter yeni satır)"></textarea>
+          <div class="composer-row">
+            <label class="note-toggle"><input id="noteMode" type="checkbox"> İç not (müşteri görmez)</label>
+            <span id="sendHint" class="muted small"></span>
+            <button class="btn primary" type="submit" id="sendBtn">Gönder</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script src="panel.js"></script>
+</body>
+</html>

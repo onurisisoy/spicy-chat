@@ -1,0 +1,48 @@
+# Render Blueprint: Render panelinde "New → Blueprint" ile bu repoyu seç.
+# Ücretsiz plan: 15 dk trafik olmazsa uyur, ilk istek ~1 dk sürer.
+# Komutlar, dosyalar reponun kökünde de "spicy-chat/" alt klasöründe de olsa çalışır.
+services:
+  - type: web
+    name: spicy-chat
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: 'if [ -f package.json ]; then npm install --omit=dev; else cd spicy-chat && npm install --omit=dev; fi'
+    startCommand: 'if [ -f package.json ]; then node src/index.js; else cd spicy-chat && node src/index.js; fi'
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: PANEL_PASSWORD
+        sync: false            # Render kurulumda soracak
+      - key: SERVE_TEST_PAGES
+        value: "true"          # test bitince false yap
+      # --- Veritabanı ---
+      # İlk deneme için memory; MongoDB hazır olunca DB_DRIVER=mongo ve MONGODB_URI gir
+      - key: DB_DRIVER
+        value: memory
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB
+        value: spicychat
+      # --- Çeviri ---
+      - key: TRANSLATION_PROVIDER
+        value: mock            # anthropic yapınca ANTHROPIC_API_KEY gir
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # --- Telegram (isteğe bağlı) ---
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_GROUP_ID
+        sync: false
+      # --- Diğer ---
+      - key: SUPPORT_HOURS
+        value: "mon-fri 09:00-18:00;sat 10:00-14:00"
+      - key: SUPPORT_TIMEZONE
+        value: Europe/Stockholm
+      - key: EMAIL_DEBOUNCE_SECONDS
+        value: "60"

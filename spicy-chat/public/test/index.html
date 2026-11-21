@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spicy Chat · Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #12302F; line-height: 1.5; }
+    a.box { display: block; padding: 16px 20px; border: 1px solid #DCE6E4; border-radius: 12px; margin: 10px 0; text-decoration: none; color: inherit; }
+    a.box:hover { background: #E6F2F0; }
+    code { background: #F4F7F6; padding: 2px 6px; border-radius: 4px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <h1>Spicy Chat · Lokal test</h1>
+  <p>Her sayfa gerçek siteyi taklit eder ve sağ altta widget'ı yükler.</p>
+  <a class="box" href="se.html" target="_blank" rel="noopener"><b>spicytravel.se</b> · İsveççe</a>
+  <a class="box" href="fi.html" target="_blank" rel="noopener"><b>spicytravel.fi</b> · Fince</a>
+  <a class="box" href="dk.html" target="_blank" rel="noopener"><b>spicytravel.dk</b> · Danca</a>
+  <a class="box" href="/panel/" target="_blank" rel="noopener"><b>Ekip paneli</b> · cevap buradan (ya da Telegram'dan)</a>
+  <h2>Test senaryosu</h2>
+  <ol>
+    <li>Paneli bir sekmede aç, giriş yap (şifre: <code>.env</code> → <code>PANEL_PASSWORD</code>).</li>
+    <li>Başka sekmede bir test sitesi aç, widget'tan yaz.</li>
+    <li>Mesaj panelde Türkçe görünür (mock çeviride <code>[sv→tr]</code> etiketiyle).</li>
+    <li>Panelden Türkçe cevap yaz; widget'ta müşterinin dilinde görünür.</li>
+    <li>Paneldeki <b>E-posta iste</b> → widget'ta e-posta formu çıkar.</li>
+    <li>Test sekmesini kapat, panelden cevap yaz → <code>EMAIL_DEBOUNCE_SECONDS</code> sonra e-posta <code>var/outbox/</code> klasörüne düşer.</li>
+    <li>Durumu <b>Offline</b> yap → widget "mesaj bırakın" moduna geçer.</li>
+  </ol>
+</body>
+</html>

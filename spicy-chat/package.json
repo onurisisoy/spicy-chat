@@ -1,0 +1,30 @@
+{
+  "name": "spicy-chat",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Spicy Travel çok dilli canlı destek: widget + sunucu + Telegram + panel, otomatik çeviri",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "dev:memory": "DB_DRIVER=memory node --watch src/index.js",
+    "test": "node --test test/*.test.js",
+    "test:mongo": "node --test test/mongo.integration.js",
+    "db:check": "node scripts/db-check.js",
+    "db:indexes": "node scripts/db-indexes.js",
+    "telegram:check": "node scripts/telegram-check.js",
+    "config:check": "node scripts/config-check.js",
+    "smoke": "node scripts/smoke-test.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "mongodb": "^7.9.1",
+    "nodemailer": "^10.6.1",
+    "ws": "^8.23.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "_aciklama": "keep: çeviride AYNEN korunacak terimler (otel/bölge adları, marka, sabit ifadeler). Büyük/küçük harf duyarsız eşleşir.",
+  "keep": [
+    "Spicy Travel",
+    "TourNate",
+    "all inclusive",
+    "ultra all inclusive",
+    "Alanya",
+    "Antalya",
+    "Side",
+    "Belek",
+    "Kemer",
+    "Bodrum",
+    "Marmaris",
+    "Fethiye",
+    "Dalaman",
+    "Istanbul"
+  ]
+}

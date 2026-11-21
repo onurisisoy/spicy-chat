@@ -1,0 +1,14 @@
+[
+  {
+    "id": "onur",
+    "name": "Onur",
+    "lang": "tr",
+    "telegramUserId": null
+  },
+  {
+    "id": "destek",
+    "name": "Destek Ekibi",
+    "lang": "en",
+    "telegramUserId": null
+  }
+]

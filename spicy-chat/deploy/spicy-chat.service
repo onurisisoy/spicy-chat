@@ -1,0 +1,18 @@
+# Canlıya geçerken (şimdilik gerekmez): systemd servisi
+#   sudo cp deploy/spicy-chat.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now spicy-chat
+[Unit]
+Description=Spicy Chat
+After=network.target
+
+[Service]
+Type=simple
+User=spicychat
+WorkingDirectory=/opt/spicy-chat
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node src/index.js
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
