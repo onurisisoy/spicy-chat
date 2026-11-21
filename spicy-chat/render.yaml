@@ -31,7 +31,7 @@ services:
         value: spicychat
       # --- Çeviri ---
       - key: TRANSLATION_PROVIDER
-        value: mock            # anthropic yapınca ANTHROPIC_API_KEY gir
+        value: anthropic            # anthropic yapınca ANTHROPIC_API_KEY gir
       - key: ANTHROPIC_API_KEY
         sync: false
       # --- Telegram (isteğe bağlı) ---
